@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +52,14 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				quantum: {
+					alice: 'hsl(var(--quantum-alice))',
+					bob: 'hsl(var(--quantum-bob))',
+					eve: 'hsl(var(--quantum-eve))',
+					qubit: 'hsl(var(--quantum-qubit))',
+					'basis-z': 'hsl(var(--quantum-basis-z))',
+					'basis-x': 'hsl(var(--quantum-basis-x))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -84,11 +93,45 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'quantum-pulse': {
+					'0%, 100%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					},
+					'50%': {
+						transform: 'scale(1.05)',
+						opacity: '0.8'
+					}
+				},
+				'qubit-travel': {
+					'0%': {
+						transform: 'translateX(-100px)',
+						opacity: '0'
+					},
+					'50%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateX(100px)',
+						opacity: '0'
+					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px hsl(var(--primary-glow) / 0.5)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px hsl(var(--primary-glow) / 0.8)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'quantum-pulse': 'quantum-pulse 2s ease-in-out infinite',
+				'qubit-travel': 'qubit-travel 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite'
 			}
 		}
 	},
