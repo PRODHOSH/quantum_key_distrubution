@@ -1,0 +1,583 @@
+/* Quantum-specific Styling and Components */
+
+/* 3D Visualization Styles */
+.simulation-container {
+    background: var(--gradient-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    height: 100vh;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.simulation-controls {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+}
+
+.canvas-container {
+    flex: 1;
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, 
+        hsl(240, 20%, 8%) 0%, 
+        hsl(240, 30%, 3%) 100%);
+}
+
+.quantum-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.canvas-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.qubit-info {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transmission-status {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-details {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-lg);
+    border: 1px solid var(--border);
+}
+
+/* Analytics Dashboard */
+.analytics-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.chart-container {
+    background: var(--gradient-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.chart-container h4 {
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.chart-container canvas {
+    max-height: 300px;
+}
+
+.analytics-controls {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.detailed-stats {
+    background: var(--gradient-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+}
+
+/* Education System */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    height: 80vh;
+}
+
+.lesson-nav {
+    display: flex;
+    gap: var(--space-sm);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm);
+}
+
+.lesson-btn {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-weight: 500;
+}
+
+.lesson-btn:hover {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+.lesson-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--glow-primary);
+}
+
+.lesson-content {
+    flex: 1;
+    background: var(--gradient-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    overflow-y: auto;
+}
+
+.lesson {
+    display: none;
+}
+
+.lesson.active {
+    display: block;
+    animation: fade-in 0.3s ease;
+}
+
+.interactive-lesson {
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.interactive-lesson h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.interactive-lesson p {
+    margin-bottom: var(--space-lg);
+}
+
+.interactive-demo {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+    border: 1px solid var(--border);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.quiz-container {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    margin-top: var(--space-xl);
+}
+
+.quiz-question {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.quiz-option {
+    padding: var(--space-md);
+    background: var(--surface-hover);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.quiz-option:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.quiz-option.selected {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Quantum Visualization Elements */
+.qubit-visualization {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.qubit-sphere {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    position: relative;
+    animation: quantum-entanglement 4s linear infinite;
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.5);
+}
+
+.qubit-sphere.basis-z {
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+}
+
+.qubit-sphere.basis-x {
+    background: linear-gradient(135deg, #EC4899, #F59E0B);
+}
+
+.qubit-sphere::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.6), 
+        transparent 50%);
+}
+
+.qubit-sphere::after {
+    content: attr(data-bit);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.basis-indicator {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    color: var(--text-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--border);
+}
+
+/* Key Visualization */
+.key-visualization {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    min-height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.key-bit {
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    animation: key-generation 0.3s ease-out;
+}
+
+.key-bit.bit-0 {
+    background: var(--secondary-color);
+}
+
+.key-bit.bit-1 {
+    background: var(--primary-color);
+}
+
+/* Security Meter */
+.security-meter {
+    position: relative;
+    height: 30px;
+    background: var(--surface);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.security-meter-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 2s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.security-meter-fill.low {
+    background: linear-gradient(90deg, var(--danger-color), #FF6B6B);
+}
+
+.security-meter-fill.medium {
+    background: linear-gradient(90deg, var(--warning-color), #FFA726);
+}
+
+.security-meter-fill.high {
+    background: linear-gradient(90deg, var(--success-color), #66BB6A);
+}
+
+.security-meter-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* Particle Effects */
+.particle-system {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.quantum-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.quantum-particle.photon {
+    background: #FFD700;
+    animation: photon-travel 2s linear infinite;
+}
+
+.quantum-particle.interference {
+    background: var(--danger-color);
+    animation: interference-pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes photon-travel {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 10px));
+        opacity: 0;
+    }
+}
+
+@keyframes interference-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* Quantum State Indicators */
+.quantum-state {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quantum-state.superposition {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.quantum-state.measured {
+    background: var(--success-color);
+    color: white;
+}
+
+.quantum-state.intercepted {
+    background: var(--danger-color);
+    color: white;
+    animation: eve-interference 1s ease-in-out infinite;
+}
+
+/* Protocol Step Indicators */
+.protocol-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--space-xl) 0;
+    position: relative;
+}
+
+.protocol-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border);
+    z-index: 1;
+}
+
+.protocol-step {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 2;
+    transition: all var(--transition-fast);
+}
+
+.protocol-step.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--glow-primary);
+}
+
+.protocol-step.completed {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+/* Responsive Quantum Elements */
+@media (max-width: 768px) {
+    .simulation-container {
+        height: 60vh;
+    }
+    
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-container {
+        height: auto;
+    }
+    
+    .lesson-nav {
+        flex-direction: column;
+    }
+    
+    .protocol-steps {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .protocol-steps::before {
+        width: 2px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+    
+    .key-visualization {
+        justify-content: flex-start;
+    }
+    
+    .key-bit {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .qubit-sphere {
+        border: 2px solid white;
+    }
+    
+    .quantum-particle {
+        border: 1px solid white;
+    }
+    
+    .security-meter-fill {
+        border: 1px solid white;
+    }
+}

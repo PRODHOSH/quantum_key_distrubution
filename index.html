@@ -1,24 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>qkey-quest-bb84</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB84 Quantum Key Distribution Simulator</title>
+    <meta name="description" content="Interactive BB84 Quantum Cryptography Education Platform">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/quantum-theme.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Three.js for 3D visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="quantum-loader">
+            <div class="qubit-spinner"></div>
+            <h2>Initializing Quantum Simulation...</h2>
+        </div>
+    </div>
 
-    <meta property="og:title" content="qkey-quest-bb84" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Main Application Container -->
+    <div id="app" class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="quantum-logo"></div>
+                    <h1>BB84 Quantum Simulator</h1>
+                </div>
+                <nav class="nav-tabs">
+                    <button class="nav-tab active" data-tab="overview">Overview</button>
+                    <button class="nav-tab" data-tab="simulation">3D Simulation</button>
+                    <button class="nav-tab" data-tab="analytics">Analytics</button>
+                    <button class="nav-tab" data-tab="education">Learn</button>
+                </nav>
+                <div class="theme-toggle">
+                    <button id="theme-btn" class="theme-btn">🌙</button>
+                </div>
+            </div>
+        </header>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Tab -->
+            <section id="overview-tab" class="tab-content active">
+                <div class="overview-grid">
+                    <!-- Control Panel -->
+                    <div class="control-panel">
+                        <h3>Simulation Controls</h3>
+                        <div class="control-group">
+                            <label for="qubit-count">Number of Qubits:</label>
+                            <input type="range" id="qubit-count" min="4" max="100" value="20">
+                            <span id="qubit-display">20</span>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>
+                                <input type="checkbox" id="include-eve"> Include Eavesdropper (Eve)
+                            </label>
+                        </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+                        <div class="action-buttons">
+                            <button id="run-simulation" class="btn btn-primary">
+                                <span class="btn-icon">▶️</span>
+                                Run Simulation
+                            </button>
+                            <button id="reset-simulation" class="btn btn-secondary">
+                                <span class="btn-icon">🔄</span>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results Panel -->
+                    <div class="results-panel" id="results-panel" style="display: none;">
+                        <h3>Simulation Results</h3>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <h4>Key Generation</h4>
+                                <div class="key-visualization" id="key-visual"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3D Simulation Tab -->
+            <section id="simulation-tab" class="tab-content">
+                <div class="simulation-container">
+                    <div class="canvas-container">
+                        <canvas id="quantum-canvas" class="quantum-canvas"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Tab -->
+            <section id="analytics-tab" class="tab-content">
+                <div class="analytics-dashboard">
+                    <h3>Analytics Dashboard</h3>
+                    <p>Advanced analytics will be displayed here.</p>
+                </div>
+            </section>
+
+            <!-- Education Tab -->
+            <section id="education-tab" class="tab-content">
+                <div class="education-container">
+                    <h3>Educational Content</h3>
+                    <p>Interactive quantum cryptography lessons will be displayed here.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
 </html>
