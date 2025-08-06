@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Sphere, Text } from '@react-three/drei';
 import * as THREE from 'three';
@@ -21,30 +21,11 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({
   scale = 1
 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const particlesRef = useRef<THREE.Points>(null);
-
-  // Create particle system for quantum effects
-  const particles = useMemo(() => {
-    const count = 100;
-    const positions = new Float32Array(count * 3);
-    
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 2;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 2;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 2;
-    }
-    
-    return positions;
-  }, []);
 
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.5;
       meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime) * 0.2;
-    }
-    
-    if (particlesRef.current && isEveIntercepted) {
-      particlesRef.current.rotation.y = state.clock.elapsedTime * 2;
     }
   });
 
@@ -86,24 +67,17 @@ export const QuantumSphere: React.FC<QuantumSphereProps> = ({
         {basis}
       </Text>
 
-      {/* Particle effects for Eve's interference */}
+      {/* Eve interference indicator - simple pulsing effect */}
       {isEveIntercepted && (
-        <points ref={particlesRef}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={particles.length / 3}
-              array={particles}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <pointsMaterial
-            size={0.02}
-            color="#EF4444"
-            transparent
-            opacity={0.6}
+        <mesh>
+          <sphereGeometry args={[0.6 * scale, 16, 16]} />
+          <meshBasicMaterial 
+            color="#EF4444" 
+            transparent 
+            opacity={0.3}
+            wireframe
           />
-        </points>
+        </mesh>
       )}
 
       {/* Matching indicator ring */}
